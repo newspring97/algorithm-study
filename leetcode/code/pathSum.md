@@ -1,7 +1,20 @@
 # Path Sum
 
 ## Path Sum
-
+* [문제 링크](https://leetcode.com/problems/path-sum/)
+* 풀이 (2021/08/05)
+```python
+class Solution:
+    def hasPathSum(self, root: TreeNode, targetSum: int) -> bool:
+        def dfs(node, target):
+            if node is None:
+                return False
+            if node.left is None and node.right is None:
+                return target == node.val
+            return dfs(node.left, target - node.val) or dfs(node.right, target - node.val)
+        
+        return dfs(root, targetSum)
+```
 
 ## Path Sum II
 * [문제 링크](https://leetcode.com/problems/path-sum-ii/)
